@@ -23,11 +23,13 @@ class AuthController extends Controller
 
             $registerModel->loadData($request->getBody());
 
-            var_dump($registerModel);
-
             if ($registerModel->validate() && $registerModel->save()) {
                 return 'Success';
             }
+
+            echo "<pre>";
+            var_dump($registerModel->errors);
+            echo "</pre>";
 
             return "Procesando datos del formulario";
         }
@@ -35,4 +37,3 @@ class AuthController extends Controller
         return $this->render('register');
     }
 }
-
