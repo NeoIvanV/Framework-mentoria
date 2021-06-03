@@ -10,8 +10,8 @@ class SiteController extends Controller
     public function home()
     {
         return $this->render('home', [
-            'name' => 'Juan',
-            'surname' => 'Perez',
+            'name' => 'Ivan',
+            'surname' => 'Vejar',
         ]);
     }
 
