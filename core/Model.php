@@ -10,6 +10,7 @@ abstract class Model
     public const RULE_MAX = 'max';
     public const RULE_MATCH = 'match';
 
+  
     public $errors = [];
 
     public function loadData($data)
@@ -70,7 +71,6 @@ abstract class Model
         $this->errors[$attribute][] = $message;
     }
 
-
     public function errorMessages()
     {
         return [
@@ -85,6 +85,5 @@ abstract class Model
     public function hasError($attribute)
     {
         return isset($this->errors[$attribute][0]);
-        
     }
 }
