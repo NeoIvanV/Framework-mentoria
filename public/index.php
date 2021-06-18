@@ -7,7 +7,7 @@ use app\core\Application;
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
-print_r($ENV);
+//print_r($ENV);
 $config = [
     'db' => [
         'dsn' => $_ENV['DSN'],
