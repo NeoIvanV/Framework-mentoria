@@ -35,12 +35,14 @@ class RegisterModel extends DbModel
     }
 
     public function attributes(): array
-    {
-        return [
-            'firstname',
-            'lastname',
-            'email',
-            'password',
-        ];
+    {       
+         $sql = "SELECT COLUMN_NAME
+         FROM INFORMATION_SCHEMA.COLUMNS 
+         WHERE  TABLE_SCHEMA ='registro'and 
+                TABLE_NAME ='users'";
+         $statement = $this->pdo->prepare($sql);
+         $statement->execute(); 
+         return attributes();
+       // ];
     }
 }
