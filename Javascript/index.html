@@ -25,37 +25,54 @@
 <body>
     <div id="parentDiv">
         <div id="squareDiv" class="square red"></div>
-        <button id="changeColorButton">Change Color</button>
+        <button id="changeColorButton">Load Users</button>
     </div>
   <img id="imgLoad" src="" alt="">
+  <table>
+      <thead>
+          <tr>
+              <th>Nombre Completo</th>
+          </tr>
+      </thead>
+      <tbody id="userTable"></tbody>
+  </table>
+
+
+
+
+
     <script>
         //ejemplo de uso de DOM
         //Event bubbling(burbujeo de eventos)
         //Ajax
-     /*   $('#changeColorButton').click(function(event){
-            $.getJSON("https://aws.random.cat/meow?ref=public-apis", function(data){
+        $('#changeColorButton').click(function(event){
+           // $.getJSON("http://mentoria1.segic.cl/", function(data){
+            $.getJSON("http://api.local/", function(data){
                 console.log(data);
 
-                $('#imgLoad')
-                .attr('src',data.file)    
-                .fadeIn("slow")  
+                let names= data.map((user) => user.firstname + " "+ user.lastname);
+                console.log(names);
+                names.forEach(name => {
+                    let trElement = "<tr><td>" + name + "</tr></td>";
+                    $('#userTable').append(trElement);
+                    $('#userTable > tr').click(function(){
+                        $(this)
+                        .fadeOut("slow",function(){
+                          $(this).remove();
+                        });
+                    });
+                });
+            });
+        });
+                /*  console.log(data);
+
+              $('#imgLoad')
+                .attr('src',data.file)      
                 .click(function(){
                     $('#imgLoad').fadeOut("slow");
                 });   
             });
         });*/
-
-          <table>
-            <thead>
-                 <tr>
-                       <th> Nombre completo</th>
-                 </tr>   
-            </thead>    
-             <tbody id="userTable">
-
-                
-            </tbody>
-          </table>  
           /* if($('#squareDiv').hasClass('red')){
            $('#squareDiv')
            .removeClass('red')
