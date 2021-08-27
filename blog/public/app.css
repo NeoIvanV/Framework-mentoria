@@ -1,9 +1,9 @@
 body {
-     background-color: white;
-     color: #222222;
-     margin: auto;
-     max-width: 600px;
-     font-family: sans-serif;
+    background-color: white;
+    color: #222222;
+    margin: auto;
+    max-width: 600px;
+    font-family: sans-serif;
 }
 
 p {
@@ -11,8 +11,7 @@ p {
 }
 
 article + article {
-    border-top:1px solid #c5c5c5;
-    margin-top:2em;
+    border-top: 1px solid #c5c5c5;
+    margin-top: 2em;
     padding-top: 2em;
-
 }

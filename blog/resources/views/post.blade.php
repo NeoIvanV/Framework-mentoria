@@ -1,7 +1,11 @@
 @extends('layout')
 
 @section('content')
- <article>
-          <p><?= $post->body ?></p>
+<article>
+    <p><?= $post->body ?></p>
 </article>
-@endsection 
+<a href="/">Go Back</a>
+@endsection
+
+
+

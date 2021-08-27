@@ -1,11 +1,12 @@
 @extends('layout')
 
 @section('banner')
-<h1>El super blog</h1>
+    <h1>El super Blog</h1>
 @endsection
 
 @section('content')
-@if (count($posts) > 0)
+
+    @if (count($posts) > 0)
         @foreach ($posts as $post)
             <article>
                 <h1>
@@ -19,4 +20,5 @@
     @else
         I don't have any posts!
     @endif
-@endsection 
+
+@endsection

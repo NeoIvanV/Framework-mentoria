@@ -2,8 +2,8 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Illuminate\Support\Facades\File;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,26 +15,20 @@ use Illuminate\Support\Facades\File;
 |
 */
 
-
 Route::get('/', function () {
-$posts = cache()->rememberForever('posts.all',fn () =>$Post::all());
+    $posts = cache()->rememberForever('posts.all', fn () => Post::all());
 
-//ddd($posts);
-  return view('posts', [
-     'posts' => $posts
+    return view('posts', [
+        'posts' => $posts
     ]);
 });
 
-
-
 Route::get('/post/{post}', function ($slug) {
-    return view ('post', [
-        'post'=> Post::find($slug),
+    return view('post', [
+        'post' => Post::find($slug),
     ]);
-})-> where('post', '[A-Za-z\_-]+');
-     
+})->where('post', '[A-Za-z\_-]+');
 
-
-//Route::get('/', fn () => view ('welcome'));
-//Route::get('/', fn () => 'Hola Segic');
+//Route::get('/', fn () => view('welcome'));
+//Route::get('/', fn () => 'Hola SEGIC');
 //Route::get('/', fn () => ['id' => 7, 'url' => 'http://www.segic.cl']);
