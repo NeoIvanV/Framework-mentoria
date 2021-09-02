@@ -17,19 +17,14 @@ use Illuminate\Support\Facades\File;
 */
 
 Route::get('/', function () {
-    $posts = cache()->rememberForever('posts.all', fn () => Post::all());
-
+    $posts = Post::all();
     return view('posts', [
         'posts' => $posts
     ]);
 });
 
-Route::get('/post/{post}', function ($slug) {
+Route::get('/post/{post}', function (Post $post) {
     return view('post', [
-        'post' => Post::find($slug),
+        'post' => $post,
     ]);
-})->where('post', '[A-Za-z\_-]+');
-
-//Route::get('/', fn () => view('welcome'));
-//Route::get('/', fn () => 'Hola SEGIC');
-//Route::get('/', fn () => ['id' => 7, 'url' => 'http://www.segic.cl']);
+});
