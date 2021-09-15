@@ -3,8 +3,6 @@
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
-//use Illuminate\Support\Facades\File;
 
 /*
 |--------------------------------------------------------------------------
