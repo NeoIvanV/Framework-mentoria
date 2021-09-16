@@ -11,13 +11,21 @@ class Post extends Model
     use HasFactory;
 
     //public $fillable = ['title', 'resumen', 'body'];
-    public $guarded = ['id'];
+    protected $guarded = ['id'];
 
-    public function getRouteKeyName(){
-        return  'slug';
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 
-    public function category(){
+    // hasOne, hasMany, belongsTo, belongsToMany
+    public function category()
+    {
         return $this->belongsTo(Category::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
