@@ -10,7 +10,7 @@ class Post extends Model
     // Traits
     use HasFactory;
 
-    //public $fillable = ['title', 'resumen', 'body'];
+    
     protected $guarded = ['id'];
 
     public function getRouteKeyName()
@@ -24,8 +24,8 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
+       /* User::truncate();
         Category::truncate();
 
         $user = User::factory()->create();
@@ -43,6 +43,20 @@ class DatabaseSeeder extends Seeder
             'title' => 'My First Post',
             'resumen' => 'There are many variations of passages of Lorem Ipsum available',
             'body' => "There are many variations of passages of Lorem Ipsum available, but the majority believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+        ]);*/
+
+        User::truncate();
+        Category::truncate();
+        Post::truncate();
+
+        $user = User::factory()->create([
+            'name' => 'Ivan Vejar',
         ]);
+
+        Post::factory(3)->create([
+            'user_id' => $user->id,
+        ]);
+
+        Post::factory(10)->create();
     }
 }
